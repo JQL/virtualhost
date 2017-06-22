@@ -5,6 +5,7 @@ TEXTDOMAIN=virtualhost
 ### Set default parameters
 action=$1
 domain=$2
+wwwdomain=$2
 rootDir=$3
 owner=$(who am i | awk '{print $1}')
 email='webmaster@localhost'
@@ -68,7 +69,6 @@ if [ "$action" == 'create' ]
 		fi
 
 		### create virtual host rules file
-		wwwdomain="www.$domain"
 		if ! echo "
 		<VirtualHost *:80>
 			ServerAdmin $email
